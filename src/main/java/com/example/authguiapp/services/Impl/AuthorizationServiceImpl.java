@@ -30,12 +30,12 @@ public class AuthorizationServiceImpl implements AuthorizationService {
                     return true;
                 }
                 else {
-                    System.out.println("invalid email address or password");
+                    System.out.println("Invalid email address or password");
                     return false;
                 }
             }
             else {
-                System.out.println("fields should not be empty");
+                System.out.println("Login and password should not be empty");
                 return false;
             }
     }
