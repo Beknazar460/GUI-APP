@@ -18,6 +18,10 @@ public class UserEntity {
         this.confirmPass = confirmPass;
     }
 
+    public UserEntity() {
+
+    }
+
     public String getEmail() {
         return email;
     }

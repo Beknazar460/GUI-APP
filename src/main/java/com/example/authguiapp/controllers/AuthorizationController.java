@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 public class AuthorizationController {
 
@@ -35,10 +36,14 @@ public class AuthorizationController {
         signInButtonAuth.setOnAction(event -> {
             String email = emailFieldAuth.getText();
             String password = passwordFieldAuth.getText();
-            boolean isFound = authorizationService.loginUser(email, password);
+            boolean authorize;
+            try {
+                authorize = authorizationService.loginUser(email, password);
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
 
-            if (isFound) {
-
+            if (authorize) {
                 signInButtonAuth.getScene().getWindow().hide();
 
                 FXMLLoader loader = new FXMLLoader();
@@ -55,7 +60,6 @@ public class AuthorizationController {
                 stage.setScene(new Scene(root));
                 stage.showAndWait();
             }
-            else System.out.println("Error");
         });
 
         //There is button for registration
