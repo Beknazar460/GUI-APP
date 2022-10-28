@@ -43,5 +43,10 @@
             <Font name="Segoe UI Black Italic" size="19.0" />
          </font>
       </Button>
+      <Button fx:id="adminPanelButtonAuth" layoutX="14.0" layoutY="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="185.0" style="-fx-background-color: #D2691E;" text="Admin panel" textFill="WHITE">
+         <font>
+            <Font name="Segoe UI Black Italic" size="19.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

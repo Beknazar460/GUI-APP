@@ -1,36 +1,17 @@
 package com.example.authguiapp.controllers;
 
+import com.example.authguiapp.services.OpenScene;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.stage.Stage;
 
-import java.io.IOException;
-
-public class AppController {
+public class AppController implements OpenScene {
     @FXML
     private Button menuButtonApp;
 
     @FXML
     void initialize() {
         menuButtonApp.setOnAction(event -> {
-            menuButtonApp.getScene().getWindow().hide();
-
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/com/example/authguiapp/authorization.fxml"));
-
-            try {
-                loader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
+            openNewScene(menuButtonApp, "/com/example/authguiapp/authorization.fxml");
         });
     }
 

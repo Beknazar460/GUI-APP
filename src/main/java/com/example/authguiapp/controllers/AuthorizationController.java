@@ -1,21 +1,17 @@
 package com.example.authguiapp.controllers;
 
-import com.example.authguiapp.services.Impl.AuthorizationServiceImpl;
+import com.example.authguiapp.services.Impl.UserServiceImpl;
+import com.example.authguiapp.services.OpenScene;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.sql.SQLException;
 
-public class AuthorizationController {
+public class AuthorizationController implements OpenScene {
 
-    private final AuthorizationServiceImpl authorizationService = new AuthorizationServiceImpl();
+    private final UserServiceImpl userService = new UserServiceImpl();
 
     @FXML
     private TextField emailFieldAuth;
@@ -30,6 +26,9 @@ public class AuthorizationController {
     private Button signInButtonAuth;
 
     @FXML
+    private Button adminPanelButtonAuth;
+
+    @FXML
     void initialize() {
         
         //There is button for authorization
@@ -38,48 +37,23 @@ public class AuthorizationController {
             String password = passwordFieldAuth.getText();
             boolean authorize;
             try {
-                authorize = authorizationService.loginUser(email, password);
+                authorize = userService.loginUser(email, password);
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
-
             if (authorize) {
-                signInButtonAuth.getScene().getWindow().hide();
-
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/com/example/authguiapp/app.fxml"));
-
-                try {
-                    loader.load();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-
-                Parent root = loader.getRoot();
-                Stage stage = new Stage();
-                stage.setScene(new Scene(root));
-                stage.showAndWait();
+                openNewScene(signInButtonAuth, "/com/example/authguiapp/app.fxml");
             }
         });
 
         //There is button for registration
         registerButtonAuth.setOnAction(event -> {
-            registerButtonAuth.getScene().getWindow().hide();
+            openNewScene(registerButtonAuth, "/com/example/authguiapp/register.fxml");
+        });
 
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/com/example/authguiapp/register.fxml"));
-
-            try {
-                loader.load();
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-
-            Parent root = loader.getRoot();
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
+        //There is button for admin
+        adminPanelButtonAuth.setOnAction(event -> {
+            openNewScene(adminPanelButtonAuth, "");
         });
     }
-
 }

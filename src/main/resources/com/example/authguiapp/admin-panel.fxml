@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="1000.0" style="-fx-background-color: #A9A9A9;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.authguiapp.controllers.AdminPanelController">
+    <children>
+        <AnchorPane layoutY="142.0" prefHeight="408.0" prefWidth="1000.0" style="-fx-background-color: #696969;" />
+        <Label layoutX="334.0" layoutY="28.0" prefHeight="88.0" prefWidth="332.0" text="Neobis-App" textFill="#e15757">
+            <font>
+                <Font name="Showcard Gothic" size="56.0" />
+            </font>
+        </Label>
+    </children>
+</AnchorPane>
