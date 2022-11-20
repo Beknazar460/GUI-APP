@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public interface OpenScene {
+public interface OpenSceneService {
 
     default void openNewScene(Button button, String window) {
         button.getScene().getWindow().hide();

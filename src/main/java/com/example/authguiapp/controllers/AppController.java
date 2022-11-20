@@ -1,10 +1,10 @@
 package com.example.authguiapp.controllers;
 
-import com.example.authguiapp.services.OpenScene;
+import com.example.authguiapp.services.OpenSceneService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-public class AppController implements OpenScene {
+public class AppController implements OpenSceneService {
     @FXML
     private Button menuButtonApp;
 

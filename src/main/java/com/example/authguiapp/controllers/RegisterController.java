@@ -1,16 +1,16 @@
 package com.example.authguiapp.controllers;
 
 import com.example.authguiapp.entities.UserEntity;
-import com.example.authguiapp.services.Impl.UserServiceImpl;
-import com.example.authguiapp.services.OpenScene;
+import com.example.authguiapp.services.UserService;
+import com.example.authguiapp.services.OpenSceneService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-public class RegisterController implements OpenScene {
+public class RegisterController implements OpenSceneService {
 
-    private final UserServiceImpl userService = new UserServiceImpl();
+    private final UserService userService = new UserService();
 
     @FXML
     private PasswordField confirmPasswordRegister;

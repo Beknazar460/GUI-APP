@@ -1,7 +1,7 @@
 package com.example.authguiapp.controllers;
 
-import com.example.authguiapp.services.Impl.UserServiceImpl;
-import com.example.authguiapp.services.OpenScene;
+import com.example.authguiapp.services.UserService;
+import com.example.authguiapp.services.OpenSceneService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -9,9 +9,9 @@ import javafx.scene.control.TextField;
 
 import java.sql.SQLException;
 
-public class AuthorizationController implements OpenScene {
+public class AuthorizationController implements OpenSceneService {
 
-    private final UserServiceImpl userService = new UserServiceImpl();
+    private final UserService userService = new UserService();
 
     @FXML
     private TextField emailFieldAuth;
@@ -53,7 +53,7 @@ public class AuthorizationController implements OpenScene {
 
         //There is button for admin
         adminPanelButtonAuth.setOnAction(event -> {
-            openNewScene(adminPanelButtonAuth, "");
+            openNewScene(adminPanelButtonAuth, "/com/example/authguiapp/admin-panel.fxml");
         });
     }
 }
